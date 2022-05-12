@@ -1,0 +1,7 @@
+.vagrant/
+
+cached/.vcache/*
+!cached/.vcache/.gitkeep
+
+puppet/modules/*
+!puppet/modules/.gitkeep

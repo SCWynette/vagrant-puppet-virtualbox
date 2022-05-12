@@ -1,0 +1,8 @@
+moduledir '/etc/puppetlabs/code/modules/'
+
+mod 'puppetlabs/concat', :latest
+mod 'puppetlabs/motd', :latest
+mod 'puppetlabs/ntp', :latest
+mod 'puppetlabs/stdlib', :latest
+
+mod 'ipcrm-echo', :latest
