@@ -29,5 +29,9 @@ $tier = 'default'
 $zone = 'default'
 
 node default {
+  include role::default
+}
 
+node 'node01.example.com' {
+  include role::node
 }

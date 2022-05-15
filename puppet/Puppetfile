@@ -5,4 +5,11 @@ mod 'puppetlabs/motd', :latest
 mod 'puppetlabs/ntp', :latest
 mod 'puppetlabs/stdlib', :latest
 
-mod 'ipcrm-echo', :latest
+mod 'ipcrm-echo', '0.1.7'
+mod 'pest-packages', '1.0.3'
+mod 'puppet-boolean', '2.0.2'
+mod 'puppet-filemapper', '3.1.0'
+mod 'puppet-network', '1.0.0'
+mod 'puppet-nscd', '3.0.0'
+mod 'saz-resolv_conf', '5.0.0'
+mod 'saz-sudo', '7.0.2'
