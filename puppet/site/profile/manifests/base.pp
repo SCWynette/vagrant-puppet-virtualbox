@@ -5,4 +5,5 @@ class profile::base {
     include profile::base::packages
     include profile::base::services
     include profile::base::sudo
+    include profile::base::nscd
 }
