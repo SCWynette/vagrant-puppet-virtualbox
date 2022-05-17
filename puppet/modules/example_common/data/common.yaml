@@ -1,10 +1,10 @@
 ---
-  lookup_options:
-    example_common::latest_packages:
-      merge: 'deep'
-    example_common::remove_packages:
-      merge: 'deep'
-    example_common::install_version:
-      merge: 'deep'
-    example_common::install_packages:
-      merge: 'deep'
+lookup_options:
+  example_common::latest_packages:
+    merge: 'deep'
+  example_common::remove_packages:
+    merge: 'deep'
+  example_common::install_version:
+    merge: 'deep'
+  example_common::install_packages:
+    merge: 'deep'

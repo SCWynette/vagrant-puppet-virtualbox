@@ -6,3 +6,97 @@ profile::base::ntp::servers:
   - time2.google.com
   - time3.google.com
   - time4.google.com
+
+profile::base::nsswitch::automount: 'files'
+
+profile::base::nis::domain: 'example.com'
+profile::base::nis::servers:
+  - '192.168.1.1'
+  - '192.168.1.2'
+  - '192.168.1.3'
+
+profile::base::pam::manage_nsswitch: false
+profile::base::pam::pam_account_lines:
+  - 'account    [success=2 new_authtok_reqd=2 default=ignore] pam_access.so'
+  - 'account    optional      pam_echo.so file=/etc/security/access_denied'
+  - 'account    required      pam_deny.so'
+  - 'account    required      pam_unix.so'
+  - 'account    sufficient    pam_localuser.so'
+  - 'account    sufficient    pam_succeed_if.so uid < 500 quiet'
+  - 'account    sufficient    pam_krb5.so realm=sub1.example.com'
+  - 'account    sufficient    pam_krb5.so realm=sub2.example.com'
+  - 'account    sufficient    pam_krb5.so realm=parent.corporation.com'
+  - 'account    required      pam_deny.so'
+profile::base::pam::pam_auth_lines:
+  - 'auth       required      pam_env.so'
+  - 'auth       sufficient    pam_unix.so nullok'
+  - 'auth       requisite     pam_succeed_if.so uid >= 500 quiet'
+  - 'auth       sufficient    pam_krb5.so realm=sub1.example.com try_first_pass'
+  - 'auth       sufficient    pam_krb5.so realm=sub2.example.com use_first_pass'
+  - 'auth       sufficient    pam_krb5.so realm=parent.corporation.com use_first_pass'
+  - 'auth       required      pam_deny.so'
+profile::base::pam::pam_password_auth_lines:
+  - 'auth       include       example-pre-auth'
+  - 'auth       include       example-local-auth'
+  - 'auth       include       example-network-auth'
+  - 'auth       include       example-post-auth'
+  - 'account    include       example-pre-auth'
+  - 'account    include       example-local-auth'
+  - 'account    include       example-network-auth'
+  - 'account    include       example-post-auth'
+  - 'password   include       example-pre-auth'
+  - 'password   include       example-local-auth'
+  - 'password   include       example-network-auth'
+  - 'password   include       example-post-auth'
+  - 'session    include       example-pre-auth'
+  - 'session    include       example-local-auth'
+  - 'session    include       example-network-auth'
+  - 'session    include       example-post-auth'
+profile::base::pam::pam_password_lines:
+  - 'password   optional      pam_permit.so'
+  - 'password   sufficient    pam_unix.so sha512 shadow nullok'
+  - 'password   sufficient    pam_krb5.so realm=sub1.example.com try_first_pass banner=Windows'
+  - 'password   sufficient    pam_krb5.so realm=sub2.example.com use_first_pass banner=Windows'
+  - 'password   sufficient    pam_krb5.so realm=parent.corporation.com use_first_pass banner=Windows'
+  - 'password   required      pam_deny.so'
+profile::base::pam::pam_session_lines:
+  - 'session    required      pam_mkhomedir.so skel=/etc/skel/ umask=0022'
+  - 'session    optional      pam_keyinit.so revoke'
+  - 'session    required      pam_limits.so'
+  - 'session                  [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid'
+  - 'session    optional      pam_unix.so'
+  - 'session    optional      pam_krb5.so realm=sub1.example.com'
+  - 'session    optional      pam_krb5.so realm=sub2.example.com'
+  - 'session    optional      pam_krb5.so realm=parent.corporation.com'
+  - 'session    optional      pam_permit.so'
+profile::base::pam::pam_auth_files:
+  '/etc/pam.d/example-pre-auth':
+    ensure: 'file'
+    content: 'example_pam/example-pre-auth'
+    mode: '0444'
+    owner: 'root'
+    group: 'root'
+  '/etc/pam.d/example-local-auth':
+    ensure: 'file'
+    content: 'example_pam/example-local-auth'
+    mode: '0444'
+    owner: 'root'
+    group: 'root'
+  '/etc/pam.d/example-network-auth':
+    ensure: 'file'
+    content: 'example_pam/example-network-auth'
+    mode: '0444'
+    owner: 'root'
+    group: 'root'
+  '/etc/pam.d/example-post-auth':
+    ensure: 'file'
+    content: 'example_pam/example-post-auth'
+    mode: '0444'
+    owner: 'root'
+    group: 'root'
+  '/etc/security/access_denied':
+    ensure: 'file'
+    content: 'example_pam/access_denied'
+    mode: '0444'
+    owner: 'root'
+    group: 'root'

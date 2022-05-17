@@ -1,14 +1,17 @@
 # Example base nis profile
-class profile::base::nis {
+class profile::base::nis (
+  $domain,
+  $servers,
+) {
   include ::portmap
 
   class { '::yp':
-    domain => 'example.com',
+    domain => $domain,
   }
 
   class { '::yp::bind':
-    domain  => 'example.com',
-    servers => ['192.0.2.1', '192.0.2.2', '192.0.2.3'],
+    domain  => $domain,
+    servers => $servers,
   }
 
   Class['::portmap'] ~> Class['::yp::bind'] <~ Class['::yp']

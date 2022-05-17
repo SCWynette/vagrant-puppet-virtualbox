@@ -1,0 +1,17 @@
+---
+version: 5
+
+defaults:
+  datadir: data
+  data_hash: yaml_data
+
+hierarchy:
+  - name: "In module hierarchy"
+    paths:
+      - "%{facts.os.family}_%{facts.os.release.major}.yaml"
+      - "%{facts.os.name}_%{facts.os.release.major}.yaml"
+      - "%{facts.os.family}.yaml"
+      - "%{facts.os.name}.yaml"
+      - "%{facts.virtual}.yaml"
+      - "%{facts.kernel}.yaml"
+      - "common.yaml"

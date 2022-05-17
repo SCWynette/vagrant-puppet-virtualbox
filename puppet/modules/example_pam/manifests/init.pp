@@ -1,5 +1,5 @@
-# Example base pam profile
-class profile::base::pam (
+# example_pam class
+class example_pam (
   $manage_nsswitch,
   $pam_account_lines,
   $pam_auth_lines,
@@ -8,13 +8,19 @@ class profile::base::pam (
   $pam_session_lines,
   $pam_auth_files,
 ) {
-  class { '::example_pam':
+  class { '::pam':
     manage_nsswitch         => $manage_nsswitch,
     pam_account_lines       => $pam_account_lines,
     pam_auth_lines          => $pam_auth_lines,
     pam_password_auth_lines => $pam_password_auth_lines,
     pam_password_lines      => $pam_password_lines,
     pam_session_lines       => $pam_session_lines,
-    pam_auth_files          => $pam_auth_files,
+    require                 => Class['::yp::bind'],
+  }
+
+  $pam_auth_files.each |$key,$value| {
+    file { $key:
+      * => $value,
+    }
   }
 }

@@ -3,3 +3,5 @@ test: 'node01.example.com.yaml'
 
 profile::network::ipaddress:
   - '192.168.33.20'
+
+profile::base::nsswitch::automount: ['files','nis']

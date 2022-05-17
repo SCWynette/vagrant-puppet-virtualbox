@@ -2,7 +2,7 @@
 class profile::network (
   $ipaddress
 ) {
-  include '::network'
+  include ::network
 
   network_config { 'eth1':
     ensure    => 'present',
