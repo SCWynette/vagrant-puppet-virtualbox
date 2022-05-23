@@ -1,0 +1,63 @@
+---
+example_pam::options_hash:
+  pam_auth_lines:
+    - "auth        required      pam_env.so"
+    - "auth        sufficient    pam_unix.so nullok"
+    - "auth        requisite     pam_succeed_if.so uid >= 500 quiet"
+    - "auth        sufficient    pam_sss.so"
+    - "auth        required      pam_deny.so"
+  pam_account_lines:
+    - "account     [success=2 new_authtok_reqd=2 default=ignore] pam_access.so"
+    - "account     optional      pam_echo.so file=/etc/security/access_denied"
+    - "account     required      pam_deny.so"
+    - "account     required      pam_unix.so"
+    - "account     sufficient    pam_localuser.so"
+    - "account     sufficient    pam_succeed_if.so uid < 500 quiet"
+    - "account     sufficient    pam_sss.so"
+    - "account     sufficient    pam_sss.so"
+    - "account     required      pam_permit.so"
+  pam_password_lines:
+    - "password    optional      pam_permit.so"
+    - "password    sufficient    pam_unix.so sha512 shadow nullok"
+    - "password    sufficient    pam_sss.so"
+    - "password    required      pam_deny.so"
+  pam_session_lines:
+    - "session     required      pam_mkhomedir.so skel=/etc/skel/ umask=0022"
+    - "session     optional      pam_keyinit.so revoke"
+    - "session     required      pam_limits.so"
+    - "session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid"
+    - "session     optional      pam_unix.so"
+    - "session     optional      pam_sss.so"
+    - "session     optional      pam_permit.so"
+  services:
+    "example-pre-auth":
+      lines:
+        - "auth        required      pam_env.so"
+        - "account     [success=2 new_authtok_reqd=2 default=ignore] pam_access.so"
+        - "account     optional      pam_echo.so file=/etc/security/access_denied"
+        - "account     required      pam_deny.so"
+        - "password    optional      pam_permit.so"
+        - "session     optional      pam_keyinit.so revoke"
+        - "session     required      pam_limits.so"
+    "example-local-auth":
+      lines:
+        - "auth        sufficient    pam_unix.so nullok"
+        - "auth        requisite     pam_succeed_if.so uid >= 500 quiet"
+        - "account     required      pam_unix.so"
+        - "account     sufficient    pam_localuser.so"
+        - "account     sufficient    pam_succeed_if.so uid < 500 quiet"
+        - "password    sufficient    pam_unix.so sha512 shadow nullok"
+        - "session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid"
+        - "session     optional      pam_unix.so"
+    "example-network-auth":
+      lines:
+        - "auth        sufficient    pam_sss.so"
+        - "account     sufficient    pam_sss.so"
+        - "password    sufficient    pam_sss.so"
+        - "session     optional      pam_sss.so"
+    "example-post-auth":
+      line:
+        - "auth        required      pam_deny.so"
+        - "account     required      pam_permit.so"
+        - "password    required      pam_deny.so"
+        - "session     optional      pam_permit.so"
