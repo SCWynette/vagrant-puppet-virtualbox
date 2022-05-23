@@ -3,8 +3,8 @@ class profile::base::dns (
   $nameservers,
   $searchpath,
 ) {
-    class { '::resolv_conf':
-        nameservers => $nameservers,
-        searchpath  => $searchpath,
-    }
+  class { '::resolv_conf':
+    nameservers => $nameservers,
+    searchpath  => $searchpath,
+  }
 }

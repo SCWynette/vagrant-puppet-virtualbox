@@ -1,0 +1,4 @@
+---
+example_nslcd::options_hash:
+  ldap_maps:
+    "group uniqueMember": "member"

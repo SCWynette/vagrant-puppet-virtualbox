@@ -1,5 +1,5 @@
 ---
-test: 'common'
+test: "common"
 
 profile::base::ntp::servers:
   - time1.google.com
@@ -7,10 +7,40 @@ profile::base::ntp::servers:
   - time3.google.com
   - time4.google.com
 
-profile::base::nsswitch::automount: 'files'
+profile::base::nsswitch::automount: "files"
 
-profile::base::nis::domain: 'example.com'
+profile::base::nis::domain: "example.com"
 profile::base::nis::servers:
-  - '192.168.1.1'
-  - '192.168.1.2'
-  - '192.168.1.3'
+  - "192.168.1.1"
+  - "192.168.1.2"
+  - "192.168.1.3"
+
+profile::base::logrotate::conf:
+  "/etc/logrotate.conf":
+    rotate: 28
+    rotate_every: "day"
+    compress: true
+    dataeext: true
+    su: true
+
+profile::base::logrotate::rule:
+  "sudo.log":
+    path: "/var/log/wtmp"
+    sharedscripts: true
+    missingok: true
+  "wtmp":
+    path: "/var/log/wtmp"
+    create_owner: "root"
+    create_group: "utmp"
+    create: true
+    create_mode: "0664"
+    rotate_every: "month"
+    rotate: 12
+  "btmp":
+    path: "/var/log/btmp"
+    create_owner: "root"
+    create_group: "utmp"
+    create: true
+    create_mode: "0600"
+    rotate_every: "month"
+    rotate: 12

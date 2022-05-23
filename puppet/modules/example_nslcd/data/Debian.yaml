@@ -1,0 +1,8 @@
+---
+example_nslcd::options_hash:
+  ldap_maps:
+    "passwd uid": "sAMAccountName"
+    "passwd homeDirectory": "unixHomeDirectory"
+    "passwd gecos": "displayName"
+    "shadow uid": "sAMAccountName"
+    "shadow shadowLastChange": "pwdLastSet"
