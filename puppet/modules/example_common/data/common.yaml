@@ -1,10 +1,19 @@
 ---
 lookup_options:
   example_common::latest_packages:
-    merge: 'deep'
+    merge: "deep"
   example_common::remove_packages:
-    merge: 'deep'
+    merge: "deep"
   example_common::install_version:
-    merge: 'deep'
+    merge: "deep"
   example_common::install_packages:
-    merge: 'deep'
+    merge: "deep"
+
+example_common::install_packages:
+  - nscd
+  - ntp
+  - dhclient
+
+example_common::latest_packages:
+  - ftp
+  - telnet

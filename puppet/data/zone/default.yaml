@@ -1,8 +1,6 @@
 ---
-test: 'zone'
-
 profile::base::dns::nameservers:
   - 8.8.8.8
   - 8.8.4.4
 profile::base::dns::searchpath:
-  - 'example.com'
+  - example.com

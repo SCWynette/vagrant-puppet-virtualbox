@@ -35,3 +35,7 @@ node default {
 node 'node01.example.com' {
   include role::node
 }
+
+node 'node02.example.com' {
+  include role::node
+}

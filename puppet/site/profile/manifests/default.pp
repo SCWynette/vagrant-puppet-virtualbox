@@ -1,6 +1,6 @@
 # Puppet example profile
 class profile::default {
-  echo { 'Test Message':
+  echo { 'You are using the default profile':
     withpath => false
   }
 }

@@ -1,6 +1,6 @@
 ---
-example_selinux:supported: true
+example_selinux::apply: true
 
-example_selinux:options_hash:
+example_selinux::options_hash:
   mode: "disabled"
   type: "targeted"

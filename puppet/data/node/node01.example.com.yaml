@@ -1,7 +1,7 @@
 ---
-test: 'node01.example.com.yaml'
-
+profile::base::autofs::nfs_trusted: true
+profile::base::nsswitch::automount:
+  - files
+  - nis
 profile::network::ipaddress:
-  - '192.168.33.20'
-
-profile::base::nsswitch::automount: ['files','nis']
+  - 192.168.33.20

@@ -1,2 +1,6 @@
 ---
-supported: false
+example_daemontools::apply: false
+
+example_daemontools::binaries: undef
+
+example_daemontools::man_page: undef

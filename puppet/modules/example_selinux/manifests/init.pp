@@ -1,14 +1,14 @@
 # example_selinux class
 class example_selinux (
-  $supported,
+  $apply,
   $options_hash,
 ) {
-  if($supported == 'true') {
+  if($apply) {
     class { 'selinux':
       * => $options_hash
     }
   } else {
-    echo { 'skipping example_selinux due to unsupported os':
+    echo { 'Skipping example_selinux due to unsupported os':
       withpath => false
     }
   }

@@ -1,20 +1,20 @@
 ---
 lookup_options:
   example_nsswitch::options_hash:
-    merge: 'deep'
+    merge: "deep"
 
 example_nsswitch::options_hash:
-  passwd:     ['files','nis']
-  shadow:     'files'
-  group:      ['files','nis']
-  hosts:      ['files','nis']
-  bootparams: 'files'
-  ethers:     'files'
-  netmasks:   'files'
-  networks:   'files'
-  protocols:  'files'
-  rpc:        'files'
-  services:   'files'
-  netgroup:   ['files','nis']
-  publickey:  'files'
-  aliases:    ['files','nis']
+  passwd: ["files", "nis"]
+  shadow: "files"
+  group: ["files", "nis"]
+  hosts: ["files", "nis"]
+  bootparams: "files"
+  ethers: "files"
+  netmasks: "files"
+  networks: "files"
+  protocols: "files"
+  rpc: "files"
+  services: "files"
+  netgroup: ["files", "nis"]
+  publickey: "files"
+  aliases: ["files", "nis"]

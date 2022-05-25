@@ -1,5 +1,6 @@
 ---
 example_pam::options_hash:
+  manage_nsswitch: false
   pam_auth_lines:
     - "auth        required      pam_env.so"
     - "auth        sufficient    pam_unix.so nullok"

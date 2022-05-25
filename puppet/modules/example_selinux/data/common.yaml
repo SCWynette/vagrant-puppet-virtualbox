@@ -1,2 +1,4 @@
 ---
-example_selinux:supported: false
+example_selinux::apply: false
+
+example_selinux::options_hash: undef

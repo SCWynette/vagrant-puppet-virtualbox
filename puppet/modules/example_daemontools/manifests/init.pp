@@ -1,10 +1,10 @@
 # example_daemontools class
 class example_daemontools (
+  $apply,
   $binaries,
   $man_page,
-  $supported,
 ) {
-  if($supported) {
+  if($apply) {
     $binaries.each |$key,$value| {
       file { $key:
         *     => $value,
@@ -23,7 +23,7 @@ class example_daemontools (
       }
     }
   } else {
-    echo { 'skipping example_daemontools due to unsupported os':
+    echo { 'Skipping example_daemontools due to unsupported os':
       withpath => false
     }
   }

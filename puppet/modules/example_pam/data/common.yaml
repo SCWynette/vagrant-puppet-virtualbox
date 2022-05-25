@@ -55,7 +55,7 @@ example_pam::options_hash:
     - "session     include       example-network-auth"
     - "session     include       example-post-auth"
   services:
-    "example-pre-auth":
+    example-pre-auth:
       lines:
         - "auth        required      pam_env.so"
         - "account     [success=2 new_authtok_reqd=2 default=ignore] pam_access.so"
@@ -64,7 +64,7 @@ example_pam::options_hash:
         - "password    optional      pam_permit.so"
         - "session     optional      pam_keyinit.so revoke"
         - "session     required      pam_limits.so"
-    "example-local-auth":
+    example-local-auth:
       lines:
         - "auth        sufficient    pam_unix.so nullok"
         - "auth        requisite     pam_succeed_if.so uid >= 500 quiet"
@@ -74,7 +74,7 @@ example_pam::options_hash:
         - "password    sufficient    pam_unix.so sha512 shadow nullok"
         - "session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid"
         - "session     optional      pam_unix.so"
-    "example-network-auth":
+    example-network-auth:
       lines:
         - "auth        sufficient    pam_krb5.so realm=sub1.example.com try_first_pass"
         - "auth        sufficient    pam_krb5.so realm=sub2.example.com use_first_pass"
@@ -88,8 +88,9 @@ example_pam::options_hash:
         - "session     optional      pam_krb5.so realm=sub1.example.com"
         - "session     optional      pam_krb5.so realm=sub2.example.com"
         - "session     optional      pam_krb5.so realm=parent.corporation.com"
-    "example-post-auth": lines
-      - 'auth        required      pam_deny.so'
-      - 'account     required      pam_permit.so'
-      - 'password    required      pam_deny.so'
-      - 'session     optional      pam_permit.so'
+    example-post-auth:
+      lines:
+        - 'auth        required      pam_deny.so'
+        - 'account     required      pam_permit.so'
+        - 'password    required      pam_deny.so'
+        - 'session     optional      pam_permit.so'

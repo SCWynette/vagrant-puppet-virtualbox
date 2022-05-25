@@ -1,10 +1,5 @@
 moduledir '/etc/puppetlabs/code/modules/'
 
-mod 'puppetlabs/concat', :latest
-mod 'puppetlabs/motd', :latest
-mod 'puppetlabs/ntp', :latest
-mod 'puppetlabs/stdlib', :latest
-
 mod 'bodgit-portmap', '4.0.0'
 mod 'bodgit-yp', '4.0.0'
 mod 'geekix-nslcd', '0.4.3'
@@ -17,6 +12,13 @@ mod 'puppet-logrotate', '6.0.0'
 mod 'puppet-network', '1.0.0'
 mod 'puppet-nscd', '3.0.0'
 mod 'puppet-selinux', '3.4.1'
+mod 'puppetlabs/concat', :latest
+mod 'puppetlabs/motd', :latest
+mod 'puppetlabs/ntp', :latest
+mod 'puppetlabs/stdlib', :latest
 mod 'saz-resolv_conf', '5.0.0'
 mod 'saz-sudo', '7.0.2'
 mod 'trlinkin-nsswitch', '2.2.0'
+mod 'puppet-autofs',
+  :git    => 'https://github.com/voxpupuli/puppet-autofs',
+  :commit => 'd8d305c'
