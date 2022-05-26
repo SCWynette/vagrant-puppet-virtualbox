@@ -1,10 +1,10 @@
 # example_nsswitch class
 class example_nsswitch (
-  $options_hash,
   $automount,
+  $options,
 ) {
   class { '::nsswitch':
-    *         => $options_hash,
+    *         => $options,
     automount => $automount,
     require   => Class['::yp::bind'],
   }

@@ -2,21 +2,20 @@
 lookup_options:
   example_nslcd::options_hash:
     merge: "deep"
-
 example_nslcd::options_hash:
-  ldap_uris:
-    - "ldap://example.com:3268"
-  ldap_search_base: "dc=example,dc=com"
-  ldap_binddn: "Administrator"
-  ldap_bindpw: "P@ssw0rd1"
-  ldap_ssl: "start_tls"
-  ldap_tls_reqcert: "never"
   config_options:
-    timelimit: 20
     bind_timelimit: 10
+    nss_initgroups_ignoreusers: root
     pagesize: 1000
-    nss_initgroups_ignoreusers: "root"
+    timelimit: 20
+  ldap_binddn: Administrator
+  ldap_bindpw: P@ssw0rd1
   ldap_filters:
-    passwd: "(&(objectClass=user)(!(objectClass=computer))(uidNumber=*)(unixHomeDirectory=*))"
-    shadow: "(&(objectClass=user)(!(objectClass=computer))(uidNumber=*)(unixHomeDirectory=*))"
-    group: "(objectClass=group)"
+    group: (objectClass=group)
+    passwd: (&(objectClass=user)(!(objectClass=computer))(uidNumber=*)(unixHomeDirectory=*))
+    shadow: (&(objectClass=user)(!(objectClass=computer))(uidNumber=*)(unixHomeDirectory=*))
+  ldap_search_base: dc=example,dc=com
+  ldap_ssl: start_tls
+  ldap_tls_reqcert: never
+  ldap_uris:
+    - ldap://example.com:3268

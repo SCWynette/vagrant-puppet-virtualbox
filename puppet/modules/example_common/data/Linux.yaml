@@ -1,9 +1,0 @@
----
-example_common::install_packages:
-  - nscd
-  - ntp
-  - dhclient
-
-example_common::latest_packages:
-  - ftp
-  - telnet

@@ -1,0 +1,2 @@
+---
+example_autofs::service_conf_path: '/etc/default/autofs'

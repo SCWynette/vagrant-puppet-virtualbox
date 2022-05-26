@@ -1,6 +1,4 @@
 ---
 example_daemontools::apply: false
-
-example_daemontools::binaries: undef
-
-example_daemontools::man_page: undef
+example_daemontools::binaries: null
+example_daemontools::man_page: null

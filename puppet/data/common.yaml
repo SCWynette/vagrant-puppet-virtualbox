@@ -1,6 +1,13 @@
 ---
-profile::base::autofs::auto_master_map: +auto.master
+profile::base::autofs::auto_master_map: auto.master
+profile::base::autofs::manage_service_config: true
 profile::base::autofs::nfs_trusted: false
+profile::base::autofs::service_options:
+  - "-DNFS_OPTS=tcp"
+  - intr
+  - actimeo=3
+  - vers=3
+profile::base::autofs::service_use_misc_device: "yes"
 profile::base::logrotate::conf:
   /etc/logrotate.conf:
     compress: true
@@ -12,7 +19,7 @@ profile::base::logrotate::rule:
   btmp:
     create: true
     create_group: utmp
-    create_mode: '0600'
+    create_mode: "0600"
     create_owner: root
     path: /var/log/btmp
     rotate: 12
@@ -24,7 +31,7 @@ profile::base::logrotate::rule:
   wtmp:
     create: true
     create_group: utmp
-    create_mode: '0664'
+    create_mode: "0664"
     create_owner: root
     path: /var/log/wtmp
     rotate: 12

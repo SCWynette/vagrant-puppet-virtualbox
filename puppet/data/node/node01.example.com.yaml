@@ -1,4 +1,5 @@
 ---
+profile::base::autofs::auto_master_map: auto.master.example
 profile::base::autofs::nfs_trusted: true
 profile::base::nsswitch::automount:
   - files

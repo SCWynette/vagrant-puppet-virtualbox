@@ -1,42 +1,40 @@
 ---
 example_daemontools::apply: true
-
 example_daemontools::binaries:
-  "/usr/local/bin/envdir":
-    source: "puppet:///modules/example_daemontools/bin/envdir"
-  "/usr/local/bin/envuidgid":
-    source: "puppet:///modules/example_daemontools/bin/envuidgid"
-  "/usr/local/bin/fghack":
-    source: "puppet:///modules/example_daemontools/bin/fghack"
-  "/usr/local/bin/pgtphack":
-    source: "puppet:///modules/example_daemontools/bin/pgrphack"
-  "/usr/local/bin/readproctitle":
-    source: "puppet:///modules/example_daemontools/bin/readproctitle"
-  "/usr/local/bin/setlock":
-    source: "puppet:///modules/example_daemontools/bin/setlock"
-  "/usr/local/bin/setuidgid":
-    source: "puppet:///modules/example_daemontools/bin/setuidgid"
-  "/usr/local/bin/softlimit":
-    source: "puppet:///modules/example_daemontools/bin/softlimit"
-  "/usr/local/bin/netgroups":
-    source: "puppet:///modules/example_daemontools/bin/netgroups"
-
+  /usr/local/bin/envdir:
+    source: puppet:///modules/example_daemontools/bin/envdir
+  /usr/local/bin/envuidgid:
+    source: puppet:///modules/example_daemontools/bin/envuidgid
+  /usr/local/bin/fghack:
+    source: puppet:///modules/example_daemontools/bin/fghack
+  /usr/local/bin/netgroups:
+    source: puppet:///modules/example_daemontools/bin/netgroups
+  /usr/local/bin/pgtphack:
+    source: puppet:///modules/example_daemontools/bin/pgrphack
+  /usr/local/bin/readproctitle:
+    source: puppet:///modules/example_daemontools/bin/readproctitle
+  /usr/local/bin/setlock:
+    source: puppet:///modules/example_daemontools/bin/setlock
+  /usr/local/bin/setuidgid:
+    source: puppet:///modules/example_daemontools/bin/setuidgid
+  /usr/local/bin/softlimit:
+    source: puppet:///modules/example_daemontools/bin/softlimit
 example_daemontools::man_page:
-  "/usr/local/share/man/man8/envdir.8":
-    source: "puppet:///modules/example_daemontools/man/envdir.8"
-  "/usr/local/share/man/man8/envuidgid.8":
-    source: "puppet:///modules/example_daemontools/man/envuidgid.8"
-  "/usr/local/share/man/man8/fghack.8":
-    source: "puppet:///modules/example_daemontools/man/fghack.8"
-  "/usr/local/share/man/man8/pgrphack.8":
-    source: "puppet:///modules/example_daemontools/man/pgrphack.8"
-  "/usr/local/share/man/man8/readproctitle.8":
-    source: "puppet:///modules/example_daemontools/man/readproctitle.8"
-  "/usr/local/share/man/man8/setlock.8":
-    source: "puppet:///modules/example_daemontools/man/setlock.8"
-  "/usr/local/share/man/man8/setuidgid.8":
-    source: "puppet:///modules/example_daemontools/man/setuidgid.8"
-  "/usr/local/share/man/man8/softlimit.8":
-    source: "puppet:///modules/example_daemontools/man/softlimit.8"
-  "/usr/local/share/man/man8/netgroups.8":
-    source: "puppet:///modules/example_daemontools/man/netgroups.8"
+  /usr/local/share/man/man8/envdir.8:
+    source: puppet:///modules/example_daemontools/man/envdir.8
+  /usr/local/share/man/man8/envuidgid.8:
+    source: puppet:///modules/example_daemontools/man/envuidgid.8
+  /usr/local/share/man/man8/fghack.8:
+    source: puppet:///modules/example_daemontools/man/fghack.8
+  /usr/local/share/man/man8/netgroups.8:
+    source: puppet:///modules/example_daemontools/man/netgroups.8
+  /usr/local/share/man/man8/pgrphack.8:
+    source: puppet:///modules/example_daemontools/man/pgrphack.8
+  /usr/local/share/man/man8/readproctitle.8:
+    source: puppet:///modules/example_daemontools/man/readproctitle.8
+  /usr/local/share/man/man8/setlock.8:
+    source: puppet:///modules/example_daemontools/man/setlock.8
+  /usr/local/share/man/man8/setuidgid.8:
+    source: puppet:///modules/example_daemontools/man/setuidgid.8
+  /usr/local/share/man/man8/softlimit.8:
+    source: puppet:///modules/example_daemontools/man/softlimit.8

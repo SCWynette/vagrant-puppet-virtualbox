@@ -1,5 +1,13 @@
 ---
-example_nsswitch::options_hash:
-  passwd: ["sss", "files", "systemd"]
-  shadow: ["sss", "files"]
-  group: ["sss", "files", "systemd"]
+example_nsswitch::options:
+  group:
+    - sss
+    - files
+    - systemd
+  passwd:
+    - sss
+    - files
+    - systemd
+  shadow:
+    - sss
+    - files

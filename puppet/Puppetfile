@@ -6,6 +6,7 @@ mod 'geekix-nslcd', '0.4.3'
 mod 'ghoneycutt-pam', '3.7.0'
 mod 'ipcrm-echo', '0.1.7'
 mod 'pest-packages', '1.0.3'
+mod 'puppet-autofs', '6.0.0'
 mod 'puppet-boolean', '2.0.2'
 mod 'puppet-filemapper', '3.1.0'
 mod 'puppet-logrotate', '6.0.0'
@@ -19,6 +20,3 @@ mod 'puppetlabs/stdlib', :latest
 mod 'saz-resolv_conf', '5.0.0'
 mod 'saz-sudo', '7.0.2'
 mod 'trlinkin-nsswitch', '2.2.0'
-mod 'puppet-autofs',
-  :git    => 'https://github.com/voxpupuli/puppet-autofs',
-  :commit => 'd8d305c'

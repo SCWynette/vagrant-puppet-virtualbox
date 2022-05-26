@@ -1,18 +1,21 @@
 # Example base autofs profile
 class profile::base::autofs (
-  $nfs_trusted,
   $auto_master_map,
+  $manage_service_config,
+  $nfs_trusted,
+  $service_options,
+  $service_use_misc_device,
 ) {
-  if ($nfs_trusted) {
-    class { '::autofs':
-      manage_service_config   => true,
-      service_use_misc_device => 'yes',
-      service_options         => ['DNFS_OPTS=tcp','intr','actimeo=3','vers=3'],
+  if $nfs_trusted {
+    class { '::example_autofs':
+      auto_master_map         => $auto_master_map,
+      manage_service_config   => $manage_service_config,
+      service_options         => $service_options,
+      service_use_misc_device => $service_use_misc_device,
     }
-
-    autofs::map { '/etc/auto.master':
-      mapcontents => $auto_master_map,
-      replace     => false
+  } else {
+    echo { 'Skipping profile::base::autofs as node is not trusted by nfs':
+      withpath => false
     }
   }
 }
