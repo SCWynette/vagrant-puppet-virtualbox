@@ -1,7 +1,4 @@
 ---
-lookup_options:
-  example_nsswitch::option:
-    merge: deep
 example_nsswitch::options:
   aliases:
     - files
@@ -27,3 +24,6 @@ example_nsswitch::options:
   rpc: files
   services: files
   shadow: files
+lookup_options:
+  example_nsswitch::option:
+    merge: deep

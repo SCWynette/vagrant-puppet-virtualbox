@@ -1,8 +1,4 @@
 ---
-profile::base::autofs::auto_master_map: auto.master.example
-profile::base::autofs::nfs_trusted: true
-profile::base::nsswitch::automount:
-  - files
-  - nis
+node::nfs_trusted: true
 profile::network::ipaddress:
   - 192.168.33.20

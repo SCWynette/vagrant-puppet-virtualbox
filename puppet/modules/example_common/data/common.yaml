@@ -1,17 +1,8 @@
 ---
-lookup_options:
-  example_common::install_packages:
-    merge: deep
-  example_common::install_version:
-    merge: deep
-  example_common::latest_packages:
-    merge: deep
-  example_common::remove_packages:
-    merge: deep
 example_common::files:
   /etc/profile.d/inactivity_timeout.sh:
     group: root
-    mode: "0644"
+    mode: '0644'
     owner: root
     source: puppet:///modules/example_common/profile.d/inactivity_timeout.sh
   /etc/profile.d/proxy.csh:
@@ -31,3 +22,12 @@ example_common::services:
 example_common::users:
   root:
     password: P@ssw0rd1
+lookup_options:
+  example_common::install_packages:
+    merge: deep
+  example_common::install_version:
+    merge: deep
+  example_common::latest_packages:
+    merge: deep
+  example_common::remove_packages:
+    merge: deep

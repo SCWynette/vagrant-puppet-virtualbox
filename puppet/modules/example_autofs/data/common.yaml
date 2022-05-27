@@ -1,1 +1,8 @@
 ---
+example_autofs::auto_master_map: auto.master
+example_autofs::service_use_misc_device: 'yes'
+example_base::autofs::service_options:
+  - '-DNFS_OPTS=tcp'
+  - intr
+  - actimeo=3
+  - vers=3

@@ -1,8 +1,10 @@
 # Example base nsswitch profile
 class profile::base::nsswitch (
-  $automount,
+  $nfs_trusted,
 ) {
-  class { '::example_nsswitch':
-    automount => $automount,
+  if ($nfs_trusted != 'true') {
+    class { '::example_nsswitch':
+      automount => 'files',
+    }
   }
 }

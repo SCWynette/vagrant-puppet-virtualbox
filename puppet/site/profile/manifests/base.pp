@@ -1,6 +1,6 @@
 # Puppet base profile
 class profile::base {
-  include profile::base::autofs
+  # include profile::base::autofs
   include profile::base::daemontools
   # include profile::base::dns
   include profile::base::logrotate

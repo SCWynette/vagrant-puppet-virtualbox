@@ -1,2 +1,2 @@
 ---
-example_autofs::service_conf_path: '/etc/sysconfig/autofs'
+example_autofs::service_conf_path: /etc/sysconfig/autofs
